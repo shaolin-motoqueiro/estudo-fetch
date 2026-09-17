@@ -27,37 +27,6 @@ document.getElementById("btnPost").onclick = async () => {
   mostrar(dados);
 };
 
-// PUT
-document.getElementById("btnPut").onclick = async () => {
-  const id = document.getElementById("idPut").value;
-  const nome = document.getElementById("nomePut").value;
-  const email = document.getElementById("emailPut").value;
-
-  const resposta = await fetch(`${URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nome, email }),
-  });
-
-  const dados = await resposta.json();
-  mostrar(dados);
-};
-
-// PATCH
-document.getElementById("btnPatch").onclick = async () => {
-  const id = document.getElementById("idPatch").value;
-  const nome = document.getElementById("nomePatch").value;
-
-  const resposta = await fetch(`${URL}/${id}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nome }),
-  });
-
-  const dados = await resposta.json();
-  mostrar(dados);
-};
-
 // DELETE
 document.getElementById("btnDelete").onclick = async () => {
   const id = document.getElementById("idDelete").value;

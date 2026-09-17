@@ -14,14 +14,14 @@ const PORTA = 3000;
 // Permite que o frontend (HTML) converse com a API
 app.use(cors());
 
-// Lê o body das requisições em JSON (POST, PUT, PATCH)
+// Lê o body das requisições em JSON (POST)
 app.use(express.json());
 
 // Serve os arquivos da pasta public (o frontend)
 app.use(express.static(path.join(__dirname, "public")));
 
 // ============================================
-// ROTAS — uma para cada método HTTP
+// ROTAS — GET, POST e DELETE
 // ============================================
 
 // GET — listar todos os alunos
@@ -40,34 +40,6 @@ app.post("/alunos", async (req, res) => {
   res.status(201).json({
     mensagem: "Aluno cadastrado!",
     id: resultado.rows[0].id,
-  });
-});
-
-// PUT — atualizar um aluno (substitui nome e email)
-app.put("/alunos/:id", async (req, res) => {
-  const { id } = req.params;
-  const { nome, email } = req.body;
-  const sql = "UPDATE alunos SET nome = $1, email = $2 WHERE id = $3";
-
-  const resultado = await pool.query(sql, [nome, email, id]);
-
-  res.json({
-    mensagem: "Aluno atualizado!",
-    linhasAfetadas: resultado.rowCount,
-  });
-});
-
-// PATCH — atualizar só o nome do aluno
-app.patch("/alunos/:id", async (req, res) => {
-  const { id } = req.params;
-  const { nome } = req.body;
-  const sql = "UPDATE alunos SET nome = $1 WHERE id = $2";
-
-  const resultado = await pool.query(sql, [nome, id]);
-
-  res.json({
-    mensagem: "Nome atualizado!",
-    linhasAfetadas: resultado.rowCount,
   });
 });
 
