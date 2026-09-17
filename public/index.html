@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estudo Fetch</title>
+  </head>
+  <body>
+    <h1>Frontend + Backend + Banco</h1>
+    <p>Cada botão chama um método HTTP diferente.</p>
+
+    <hr />
+
+    <h2>GET — listar alunos</h2>
+    <button id="btnGet">Listar</button>
+
+    <h2>POST — cadastrar aluno</h2>
+    <input id="nomePost" placeholder="nome" />
+    <input id="emailPost" placeholder="email" />
+    <button id="btnPost">Cadastrar</button>
+
+    <h2>PUT — atualizar aluno completo</h2>
+    <input id="idPut" placeholder="id" />
+    <input id="nomePut" placeholder="novo nome" />
+    <input id="emailPut" placeholder="novo email" />
+    <button id="btnPut">Atualizar</button>
+
+    <h2>PATCH — atualizar só o nome</h2>
+    <input id="idPatch" placeholder="id" />
+    <input id="nomePatch" placeholder="novo nome" />
+    <button id="btnPatch">Atualizar nome</button>
+
+    <h2>DELETE — remover aluno</h2>
+    <input id="idDelete" placeholder="id" />
+    <button id="btnDelete">Remover</button>
+
+    <hr />
+
+    <h2>Resposta da API</h2>
+    <pre id="saida"></pre>
+
+    <script src="script.js"></script>
+  </body>
+</html>
