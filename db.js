@@ -10,14 +10,4 @@ const pool = new Pool({
   port: 5432,
 });
 
-pool
-  .connect()
-  .then((client) => {
-    console.log("Conectado ao banco fetch (PostgreSQL)!");
-    client.release();
-  })
-  .catch((erro) => {
-    console.error("Erro ao conectar no banco:", erro.message);
-  });
-
 export default pool;

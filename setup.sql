@@ -9,3 +9,8 @@ CREATE TABLE IF NOT EXISTS alunos (
   nome VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL
 );
+
+INSERT INTO alunos (nome, email) VALUES
+  ('Ana Silva', 'ana@email.com'),
+  ('Bruno Costa', 'bruno@email.com'),
+  ('Carla Souza', 'carla@email.com');
