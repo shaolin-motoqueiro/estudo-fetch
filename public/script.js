@@ -1,9 +1,6 @@
 const URL = "http://localhost:3000/alunos";
 const saida = document.getElementById("saida");
 
-function mostrar(dados) {
-  saida.textContent = JSON.stringify(dados, null, 2);
-}
 
 // GET
 document.getElementById("btnGet").onclick = async () => {
@@ -29,12 +26,16 @@ document.getElementById("btnPost").onclick = async () => {
 
 // DELETE
 document.getElementById("btnDelete").onclick = async () => {
-  const id = document.getElementById("idDelete").value;
-
-  const resposta = await fetch(`${URL}/${id}`, {
+  const id = document.getElementById("id").value;
+  const resposta = await fetch(URL + "/" + id, {
     method: "DELETE",
   });
 
   const dados = await resposta.json();
   mostrar(dados);
 };
+
+
+function mostrar(dados) {
+  saida.textContent = JSON.stringify(dados, null, 2);
+}
