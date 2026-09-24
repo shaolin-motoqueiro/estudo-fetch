@@ -43,6 +43,19 @@ app.post("/alunos", async (req, res) => {
   });
 });
 
+
+// PUT — atualizar um aluno
+app.put("/alunos/:id", async (req, res) => {
+  const { id } = req.params;
+  const { nome, email } = req.body;
+  const sql = "UPDATE alunos SET nome = $1, email = $2 WHERE id = $3";
+  const resultado = await pool.query(sql, [nome, email, id]);
+});
+
+
+
+
+
 // DELETE — remover um aluno
 app.delete("/alunos/:id", async (req, res) => {
   const { id } = req.params;
